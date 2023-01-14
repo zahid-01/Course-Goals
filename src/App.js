@@ -1,5 +1,6 @@
 import Expenses from "./components/expenses/Expenses";
 import NewExpense from "../src/components/newExpenses/NewExpense";
+import React from "react";
 
 const expenses = [
   {
@@ -23,10 +24,16 @@ const expenses = [
   },
 ];
 
+const collectDataHandler = (data) => {
+  // console.log("Data in App.js", data);
+  expenses.push(data);
+};
+
 function App() {
+  // const []
   return (
     <div>
-      <NewExpense />
+      <NewExpense collectData={collectDataHandler} />
       <Expenses data={expenses} />
     </div>
   );
